@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel1="clr-namespace:TestApp.ViewModel;assembly=Phoneword"
+             x:Class="TestApp.View.MainPage">
+  
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="20, 40, 20, 20" Android="20, 20, 20, 20" WinPhone="20, 20, 20, 20" />
+  </ContentPage.Padding>
+  
+  <ContentPage.BindingContext>
+    <viewModel1:MainPageViewModel />
+  </ContentPage.BindingContext>
+  
+  <ContentPage.Content>
+    <ListView x:Name="ATDriveMenu" SeparatorVisibility="Default"  IsPullToRefreshEnabled="true" ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
+      
+      <ListView.Header >
+        <StackLayout Orientation="Horizontal">
+          <Label Text="ATDrive"  HorizontalTextAlignment="Center"  TextColor="#496AD3"  FontSize="35"/>
+        </StackLayout>
+      </ListView.Header>
+
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal" Padding="5, 0">
+              <Label Text="{Binding PageName}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+      
+    </ListView>
+  </ContentPage.Content>
+</ContentPage>

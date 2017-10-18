@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:viewModel="clr-namespace:TestApp.ViewModel;assembly=Phoneword"
+             x:Class="TestApp.View.Details">
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="20, 40, 20, 20" Android="20, 20, 20, 20" WinPhone="20, 20, 20, 20" />
+  </ContentPage.Padding>
+  <ContentPage.BindingContext>
+    <viewModel:DetailsViewModel/>
+  </ContentPage.BindingContext>
+  
+  <ContentPage.Content>
+    
+      <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="15">
+        <Label Text="ATDrive | Details" TextColor="#496AD3"  FontSize="25" />
+        <Label Text="Our Services" HorizontalTextAlignment="Center"  TextColor="#496AD3"  FontSize="25" />
+        
+        <ListView x:Name="DetailList" SeparatorVisibility="Default"  IsPullToRefreshEnabled="true" ItemsSource="{Binding WorkingTechnology}" HasUnevenRows="true" SeparatorColor="Transparent">
+
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell >
+                <StackLayout Padding="5, 0">
+                  <Label Text="{Binding Name}" TextColor="#3E3E42"  FontSize="25"  />
+                  <Label Text="{Binding Description}" TextColor="Gray" FontSize="15" LineBreakMode="WordWrap"  Style=""/>
+                </StackLayout>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+
+        </ListView>
+      
+      </StackLayout>
+    
+  </ContentPage.Content>
+</ContentPage>
