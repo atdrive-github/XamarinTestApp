@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:TestApp.ViewModel;assembly=Phoneword"
+             x:Class="TestApp.View.Contact">
+  <ContentPage.BindingContext>
+    <viewModel:ContactViewModel />
+  </ContentPage.BindingContext>
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="20, 40, 20, 20" Android="20, 20, 20, 20" WinPhone="20, 20, 20, 20" />
+  </ContentPage.Padding>
+  
+  <ContentPage.Content>
+    <ScrollView>
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="15">
+      <Label Text="ATDrive | Contact" TextColor="#496AD3" FontSize="25"/>
+      <Label Text="Call Us"  TextColor="Gray"   FontSize="15"></Label>
+      <Label Text="{Binding PhoneNumber} "  TextColor="Gray" XAlign="Center"  FontSize="15"/>
+      <Label Text="Mail Us"  TextColor="Gray"   FontSize="15"></Label>
+      <Label Text="{Binding Email} "  TextColor="Gray" XAlign="Center"  FontSize="15"/>
+      <Label Text="Skype Us"  TextColor="Gray"   FontSize="15"></Label>
+      <Label Text="{Binding Skype}"  TextColor="Gray"  XAlign="Center" FontSize="15"/>
+      <Label Text="Facebok"  TextColor="Gray"   FontSize="15"></Label>
+      <Label Text="{Binding FaceBook}"  TextColor="Gray" XAlign="Center"  FontSize="15"/>
+      <Label Text="Tweet Us"  TextColor="Gray"   FontSize="15"></Label>
+      <Label Text="{Binding Twiter}"  TextColor="Gray"  XAlign="Center" FontSize="15"/>
+      <Label Text="Subscribe:" />
+      <Entry Text="{Binding SubscribeEmail,Mode=TwoWay}" Placeholder="Enter your Email to Subscribe"/>
+      <Label Text="Your subscribed with:" />
+      <Label Text="{Binding SubscribeEmail}" />
+    </StackLayout>
+      </ScrollView>
+  </ContentPage.Content>
+  
+</ContentPage>
